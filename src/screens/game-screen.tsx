@@ -1,13 +1,11 @@
-import { observer } from "mobx-react-lite";
 import { css } from "@emotion/css";
-import React from "react";
 import { Counter } from "../ui/counter";
 import { Countdown } from "../ui/countdown";
 import { CardDeck } from "../ui/card-deck";
 import { colors } from "../lib/theme";
 import { store } from "../store/store";
 
-export const GameScreen = observer(() => {
+export function GameScreen() {
   return (
     <div
       className={css({
@@ -49,4 +47,4 @@ export const GameScreen = observer(() => {
       </div>
     </div>
   );
-});
+}

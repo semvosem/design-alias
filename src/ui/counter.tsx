@@ -1,9 +1,8 @@
-import React from "react";
 import { css } from "@emotion/css";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "../lib/animate-presence";
 
-export const Counter = (props: { color: string; value: number }) => {
+export function Counter(props: { color: string; value: number }) {
   return (
     <AnimatePresence initial={false}>
       <motion.div
@@ -21,4 +20,4 @@ export const Counter = (props: { color: string; value: number }) => {
       </motion.div>
     </AnimatePresence>
   );
-};
+}

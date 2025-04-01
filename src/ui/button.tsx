@@ -9,7 +9,7 @@ type Props = {
   outline?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button = (props: Props) => {
+export function Button(props: Props) {
   const { className, mainColor, ...restProps } = props;
   const parsedColor = useMemo(() => colord(mainColor), [mainColor]);
 
@@ -55,4 +55,4 @@ export const Button = (props: Props) => {
       {props.children}
     </button>
   );
-};
+}

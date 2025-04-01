@@ -1,4 +1,4 @@
-import { action, makeAutoObservable } from "mobx";
+import { makeAutoObservable } from "mobx";
 import { makeLoggable } from "mobx-log";
 import { assert } from "ts-essentials";
 import { getRandomWord } from "../lib/get-random-word";

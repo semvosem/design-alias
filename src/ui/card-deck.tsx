@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   PanInfo,
   useMotionTemplate,
@@ -6,7 +6,6 @@ import {
   useTransform,
 } from "framer-motion";
 import { Card } from "./card";
-import { observer } from "mobx-react-lite";
 import { css } from "@emotion/css";
 import { colors } from "../lib/theme";
 import { store } from "../store/store";
@@ -14,7 +13,7 @@ import { store } from "../store/store";
 const swipeOffset = 50;
 const swipeBorder = 80;
 
-export const CardDeck = observer(() => {
+export function CardDeck() {
   const [frontCardX, setFrontCardX] = useState(0);
   const x = useMotionValue(0);
   const scaleBelowCard = useTransform(
@@ -121,4 +120,4 @@ export const CardDeck = observer(() => {
       })}
     </div>
   );
-});
+}

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { css } from "@emotion/css";
 import { colors, theme } from "../lib/theme";
@@ -8,7 +8,7 @@ type Props = {
   marginTop?: string;
 };
 
-export const Modal = (props: Props) => {
+export function Modal(props: Props) {
   const { children } = props;
   const marginTop = props.marginTop || "200px";
 
@@ -41,4 +41,4 @@ export const Modal = (props: Props) => {
       {children}
     </motion.div>
   );
-};
+}

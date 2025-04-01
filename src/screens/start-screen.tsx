@@ -1,13 +1,11 @@
-import React from "react";
 import { css } from "@emotion/css";
-import { observer } from "mobx-react-lite";
 import { Button } from "../ui/button";
 import { Modal } from "../ui/modal";
 import { colors } from "../lib/theme";
 import { motion } from "framer-motion";
 import { store } from "../store/store";
 
-export const StartScreen = observer(() => {
+export function StartScreen() {
   return (
     <Modal>
       <div
@@ -68,4 +66,4 @@ export const StartScreen = observer(() => {
       </div>
     </Modal>
   );
-});
+}

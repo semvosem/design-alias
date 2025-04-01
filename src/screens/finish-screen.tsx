@@ -1,13 +1,11 @@
-import React from "react";
 import { css, cx } from "@emotion/css";
-import { observer } from "mobx-react-lite";
 import { Button } from "../ui/button";
 import { reset } from "../lib/reset";
 import { Modal } from "../ui/modal";
 import { colors } from "../lib/theme";
 import { store } from "../store/store";
 
-export const FinishScreen = observer(() => {
+export function FinishScreen() {
   return (
     <Modal marginTop={"32px"}>
       <div
@@ -77,4 +75,4 @@ export const FinishScreen = observer(() => {
       </div>
     </Modal>
   );
-});
+}
