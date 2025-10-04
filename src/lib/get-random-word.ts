@@ -1,4 +1,4 @@
-import words from "./top-2000-english-words.json";
+import words from "./design-ru-words.json";
 
 const usedWords: string[] = [];
 

@@ -17,7 +17,7 @@ export function FinishScreen() {
         })}
       >
         <span className={css({ fontSize: 36 })}>
-          Result — {store.guessed.length}
+          Результат — {store.guessed.length}
         </span>
 
         <div
@@ -30,7 +30,7 @@ export function FinishScreen() {
           })}
         >
           <ul className={cx(reset.ul)}>
-            <li>Skipped — {store.skipped.length}</li>
+            <li>Пропущено — {store.skipped.length}</li>
             {store.skipped.map((word) => (
               <li
                 key={word}
@@ -45,7 +45,7 @@ export function FinishScreen() {
             ))}
           </ul>
           <ul className={cx(reset.ul)}>
-            <li>Guessed — {store.guessed.length}</li>
+            <li>Угадано — {store.guessed.length}</li>
             {store.guessed.map((word) => (
               <li
                 key={word}
@@ -69,7 +69,7 @@ export function FinishScreen() {
           }}
         >
           <span className={css({ fontWeight: 600, fontSize: 18 })}>
-            Play again!
+            Начать заново!
           </span>
         </Button>
       </div>

@@ -60,7 +60,7 @@ export function StartScreen() {
               duration: 0.3,
             }}
           >
-            Start!
+            Старт!
           </motion.div>
         </Button>
       </div>
