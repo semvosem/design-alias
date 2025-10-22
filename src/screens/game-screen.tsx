@@ -11,32 +11,45 @@ export function GameScreen() {
       className={css({
         display: "flex",
         flexDirection: "column",
-        height: "100vh",
+        minHeight: "100vh",
+        padding: "16px 0",
+        boxSizing: "border-box",
       })}
     >
+      {/* Таймер */}
       <div
         className={css({
+          flexShrink: 0,
           display: "flex",
           justifyContent: "center",
-          marginTop: 32,
+          marginTop: 16,
+
         })}
       >
         <Countdown />
       </div>
 
+      {/* Карточки */}
       <div
         className={css({
-          overflow: "hidden",
           display: "flex",
           justifyContent: "center",
-          marginTop: 24,
+          flexWrap: "wrap",
+          gap: 12,
+          flexGrow: 1, 
+          overflowY: "auto",
+          maxHeight: "calc(100vh - 140px)",
+          margin: "24px 0", 
+
         })}
       >
         <CardDeck />
       </div>
 
+      {/* Счетчики */}
       <div
         className={css({
+          flexShrink: 0,
           display: "flex",
           justifyContent: "center",
           gap: 48,

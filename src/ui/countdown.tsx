@@ -11,6 +11,7 @@ export function Countdown() {
         className={css({
           color: store.isWarning ? colors.error : colors.text,
           fontSize: 48,
+          fontWeight: 300,
         })}
       >
         <motion.div

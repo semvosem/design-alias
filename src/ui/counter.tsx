@@ -9,7 +9,7 @@ export function Counter(props: { color: string; value: number }) {
         key={props.value}
         className={css({
           fontSize: 48,
-          fontWeight: 600,
+          fontWeight: 300,
           color: props.color,
         })}
         exit={{ y: 75, opacity: 0, position: "absolute" }}

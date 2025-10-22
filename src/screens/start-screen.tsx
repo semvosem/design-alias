@@ -7,42 +7,90 @@ import { store } from "../store/store";
 
 export function StartScreen() {
   return (
-    <Modal>
+    <Modal marginTop={"32px"}>
       <div
         className={css({
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: "left",
         })}
       >
-        <span className={css({ fontSize: 36 })}>Alias game</span>
-        <p className={css({ fontSize: 18, marginBottom: 0, paddingBottom: 8 })}>
-          Seconds per round
+        <span className={css({ fontSize: 48, fontWeight: 600, fontFamily: "Arial, sans-serif" })}>Алиас</span>
+        <span className={css({ fontSize: 18, fontWeight: 300, fontFamily: "Arial, sans-serif", color: "#E53D00" })}>для дизайнеров</span>
+        
+        <p className={css({ fontSize: 18, lineHeight: 1.4, marginBottom: 8, })} >
+          <strong>Нельзя</strong> использовать однокоренные слова, показывать
+          на предметы или рисовать.
         </p>
-        <div
-          className={css({
-            fontSize: 18,
-            display: "flex",
-            gap: 18,
-            alignItems: "center",
-          })}
-        >
-          {[10, 30, 60, 90].map((item, i) => (
-            <label key={i}>
+
+        <p className={css({ fontSize: 18, lineHeight: 1.4, marginBottom: 8, marginTop: 0, })} >
+          <strong>Можно</strong> объяснять синонимами, аналогиями,
+          контекстом. Слова можно пропускать.
+        </p>        
+
+        <p className={css({ fontSize: 18, marginBottom: 0, marginTop: 8, paddingBottom: 8 })}>
+          <strong>Раунд продлится</strong>
+        </p>
+
+      <div
+        className={css({
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+          fontSize: 18,
+        })}
+      >
+        {[10, 30, 60, 90].map((item) => {
+          const isActive = store.secondsPerRound === item;
+          return (
+            <label
+              key={item}
+              className={css({
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                cursor: "pointer",
+                userSelect: "none",
+              })}
+            >
+              <span
+                className={css({
+                  width: 18,
+                  height: 18,
+                  borderRadius: "50%",
+                  border: `2px solid ${isActive ? colors.success : "#aaa"}`,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transition: "all 0.2s ease",
+                })}
+              >
+                {isActive && (
+                  <span
+                    className={css({
+                      width: 8,
+                      height: 8,
+                      borderRadius: "50%",
+                      backgroundColor: colors.success,
+                    })}
+                  />
+                )}
+              </span>
               <input
                 type="radio"
                 name="time"
-                checked={store.secondsPerRound === item}
-                onChange={() => {
-                  store.changeSecondsPerRound(item);
-                }}
+                checked={isActive}
+                onChange={() => store.changeSecondsPerRound(item)}
+                className={css({ display: "none" })}
               />
-              <span>{item}</span>
+              <span>{item} секунд</span>
             </label>
-          ))}
-        </div>
+          );
+        })}
+      </div>
 
-        <div className={css({ marginTop: 36 })} />
+
+        <div className={css({ marginTop: 24 })} />
         <Button
           mainColor={colors.success}
           onClick={() => {
@@ -50,17 +98,17 @@ export function StartScreen() {
           }}
         >
           <motion.div
-            initial={{ opacity: 0.3 }}
+            initial={{ opacity: 0.4 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0.3 }}
-            className={css({ fontWeight: 600, fontSize: 20 })}
+            className={css({ fontWeight: 600, fontSize: 20, fontFamily: "Arial, sans-serif" })}
             transition={{
               repeat: Infinity,
               repeatType: "reverse",
-              duration: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
             }}
           >
-            Старт!
+            Поехали!
           </motion.div>
         </Button>
       </div>

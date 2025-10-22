@@ -7,5 +7,7 @@ export const colors = {
 };
 
 export const theme = {
-  borderRadius: 15,
+  borderRadius: 16,
 };
+
+fontFamily: "'Roboto Condensed', sans-serif"

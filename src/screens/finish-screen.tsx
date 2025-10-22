@@ -12,47 +12,54 @@ export function FinishScreen() {
         className={css({
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: "left",
           zIndex: 11,
         })}
       >
-        <span className={css({ fontSize: 36 })}>
-          Результат — {store.guessed.length}
+        <span className={css({ fontSize: 32, fontWeight: 600, fontFamily: "Arial, sans-serif" })}>
+          Раунд окончен 
         </span>
 
         <div
           className={css({
             display: "flex",
             width: "100%",
-            justifyContent: "space-between",
+            gap: 16,
             fontSize: 18,
-            marginTop: 24,
+            marginTop: 18,
+            lineHeight: 1.5,
           })}
         >
-          <ul className={cx(reset.ul)}>
-            <li>Пропущено — {store.skipped.length}</li>
+          <ul className={cx(reset.ul)} style={{ flex: 1 }}>
+            <li>
+              <span className={css({ fontWeight: 600 })}>
+                Пропущено: {store.skipped.length}
+              </span>    
+            </li>
             {store.skipped.map((word) => (
               <li
                 key={word}
                 className={css({
                   color: colors.error,
-                  fontWeight: 600,
-                  textTransform: "capitalize",
+                  fontWeight: 400,
                 })}
               >
                 {word}
               </li>
             ))}
           </ul>
-          <ul className={cx(reset.ul)}>
-            <li>Угадано — {store.guessed.length}</li>
+          <ul className={cx(reset.ul)} style={{ flex: 1 }}>
+            <li>
+              <span className={css({ fontWeight: 600 })}>
+                Отгадано:  {store.guessed.length}
+              </span>  
+            </li>
             {store.guessed.map((word) => (
               <li
                 key={word}
                 className={css({
                   color: colors.success,
-                  fontWeight: 600,
-                  textTransform: "capitalize",
+                  fontWeight: 400,
                 })}
               >
                 {word}
@@ -68,8 +75,8 @@ export function FinishScreen() {
             store.restart();
           }}
         >
-          <span className={css({ fontWeight: 600, fontSize: 18 })}>
-            Начать заново!
+          <span className={css({ fontWeight: 600, fontSize: 18, fontFamily: "Arial, sans-serif" })}>
+            Продолжить
           </span>
         </Button>
       </div>

@@ -16,7 +16,7 @@ export function Card({ word, style, onDragEnd, animate }: Props) {
         position: "absolute",
         left: "50%",
         top: 0,
-        height: 290,
+        height: 400,
         width: 290,
         borderRadius: theme.borderRadius,
         color: colors.text,
@@ -35,10 +35,10 @@ export function Card({ word, style, onDragEnd, animate }: Props) {
       <p
         className={css({
           textAlign: "center",
-          fontSize: 48,
+          fontSize: 36,
           fontWeight: 600,
-          textTransform: "capitalize",
           wordBreak: "break-all",
+          padding: 32,
         })}
       >
         {word}
