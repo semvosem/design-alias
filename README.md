@@ -1,4 +1,4 @@
-# Alias game
+# Alias для дизайнеров
 
 Оригинал: https://kubk.github.io/alias
 
