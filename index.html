@@ -89,7 +89,8 @@ h1{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.2}
 .acts button{padding:22px 8px;font-weight:600}
 
 /* проверка слов */
-.review{overflow:auto;flex:1;align-content:start}
+#s5{height:calc(100dvh - 48px - env(safe-area-inset-top) - env(safe-area-inset-bottom));min-height:0}
+.review{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1 1 0;min-height:0;align-content:start}
 .review .team{padding:8px 8px 8px 16px}
 .thumbs{display:flex;gap:6px}
 .thumbs button{width:44px;height:44px;padding:0;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mut)}
@@ -190,7 +191,11 @@ const norm = s => s.trim().toLowerCase();
 const plural = (n, f) => { n = Math.abs(n); const m = n % 100, d = n % 10; return f[m > 10 && m < 20 ? 2 : d === 1 ? 0 : d >= 2 && d <= 4 ? 1 : 2]; };
 const pts = n => `${n < 0 ? '−' : ''}${Math.abs(n)} ${plural(n, ['очко', 'очка', 'очков'])}`;
 const fmt = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
-const show = id => document.querySelectorAll('.screen').forEach(s => s.classList.toggle('on', s.id === id));
+const show = id => {
+  document.querySelectorAll('.screen').forEach(s => s.classList.toggle('on', s.id === id));
+  window.scrollTo(0, 0);
+  void document.body.offsetHeight; // принудительная перерисовка
+};
 const save = () => { try { G ? localStorage.setItem(KEY, JSON.stringify(G)) : localStorage.removeItem(KEY); } catch (e) {} };
 const load = () => { try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; } };
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
